@@ -1,3 +1,4 @@
+
 def password_checker(password:str) -> bool:
     """Enter your password and it will check if it fits the qualifications of having atleast
     1 capital letter, 1 lowercase letter, 1 special character, and is atleast 8 characters long. 
@@ -23,3 +24,4 @@ def password_checker(password:str) -> bool:
         return True
     else: 
         return False
+    
