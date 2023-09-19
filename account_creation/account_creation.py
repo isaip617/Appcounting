@@ -10,6 +10,7 @@ def login():
         username = request.form['username']
         password = request.form['password']
         if check_for_username(username) and password_checker(password):
+            insert_username_and_password(username, password)
             return render_template('Homepage.html')
         elif check_for_username(username) and not password_checker(password):
             flash('Password did not meet qualifications')
