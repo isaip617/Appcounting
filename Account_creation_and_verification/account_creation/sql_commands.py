@@ -17,7 +17,7 @@ def check_for_username(username:str) -> bool:
     if it is greater then 0 it will return true, and if is less than or
     equal to 0 it will return false."""
 
-    connection = sqlite3.connect('Appcounting/account_sql_database/account_database.db')
+    connection = sqlite3.connect('/Users/isaip617/Desktop/Appcounting/account_sql_database/account_database.db')
     cursor = connection.cursor()
 
     cursor.execute('SELECT COUNT(*) FROM accounts WHERE username = ?', (username,))
@@ -25,4 +25,4 @@ def check_for_username(username:str) -> bool:
 
     connection.close()
 
-    return count > 0
+    return count == 0

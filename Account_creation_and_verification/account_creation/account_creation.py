@@ -9,14 +9,16 @@ def login():
     if request.method == "POST":
         username = request.form['username']
         password = request.form['password']
-        if check_for_username(username) and password_checker(password):
+        username_validity = check_for_username(username)
+        password_validity = password_checker(password)
+        if username_validity and password_validity:
             insert_username_and_password(username, password)
             return render_template('Homepage.html')
-        elif check_for_username(username) and not password_checker(password):
+        elif username_validity and not password_validity:
             flash('Password did not meet qualifications')
-        elif not check_for_username(username) and password_checker(password):
+        elif not username_validity and password_validity:
             flash('Username Already in Use')
-        elif not check_for_username(username) and not password_checker(password):
+        elif not username_validity and not password_validity:
             flash('Username Already in Use and Password did not meet qualifications')
     else:
         return render_template("account_creation.html")
