@@ -3,7 +3,7 @@ import sqlite3
 def insert_username_and_password(username, password:str) -> None:
     """Insert a username and password into the 'accounts' table of the SQLite database."""
 
-    connection = sqlite3.connect('/Users/isaip617/Desktop/Appcounting/account_sql_database/account_database.db')
+    connection = sqlite3.connect('Appcounting/account_sql_database/account_database.db')
     cursor = connection.cursor()
 
     cursor.execute('INSERT INTO accounts (username, password) VALUES (?, ?);', 
@@ -17,7 +17,7 @@ def check_for_username(username:str) -> bool:
     if it is greater then 0 it will return true, and if is less than or
     equal to 0 it will return false."""
 
-    connection = sqlite3.connect('/Users/isaip617/Desktop/Appcounting/account_sql_database/account_database.db')
+    connection = sqlite3.connect('Appcounting/account_sql_database/account_database.db')
     cursor = connection.cursor()
 
     cursor.execute('SELECT COUNT(*) FROM accounts WHERE username = ?', (username,))

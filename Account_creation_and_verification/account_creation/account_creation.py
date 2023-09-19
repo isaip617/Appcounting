@@ -2,9 +2,9 @@ from flask import Flask, request, render_template, flash
 from password_handler import password_checker
 from sql_commands import insert_username_and_password, check_for_username
 
-account_creation = Flask(__name__)
+account_creation = Flask(__name__, template_folder='../templates')
 
-@account_creation.route('/', methods = ["POST", "GET"]):
+@account_creation.route('/hello', methods = ["POST", "GET"])
 def login():
     if request.method == "POST":
         username = request.form['username']
@@ -19,7 +19,10 @@ def login():
         elif not check_for_username(username) and not password_checker(password):
             flash('Username Already in Use and Password did not meet qualifications')
     else:
-        return render_template("account_creation.hmtl")
+        return render_template("account_creation.html")
+
+if __name__ == '__main__':
+    account_creation.run(debug=True)
 
 
 
