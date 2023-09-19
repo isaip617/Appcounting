@@ -1,11 +1,12 @@
-from flask import Flask, request, render_template, flash, redirect, url_for
+from flask import Flask, request, render_template, flash, redirect, url_for, Blueprint
 from password_handler import password_checker
 from sql_commands import insert_username_and_password, check_for_username
 
 account_creation = Flask(__name__, template_folder='../templates')
+creating_account = Blueprint('creating_account', __name__, static_folder='../static', template_folder='../templates')
 account_creation.secret_key= "Isai_secret_key"
 
-@account_creation.route('/hello', methods = ["POST", "GET"])
+@account_creation.route('/', methods = ["POST", "GET"])
 def create():
     if request.method == "POST":
         username = request.form['username']
