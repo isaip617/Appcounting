@@ -25,7 +25,7 @@ def create():
             flash('Username Already in Use and Password did not meet qualifications', 'info')
             return redirect(url_for("create"))
     else:
-        return render_template("account_creation.html")
+        return render_template("templates_for_creating_and_logging_in/account_creation.html")
 
 if __name__ == '__main__':
     account_creation.run(debug=True)
