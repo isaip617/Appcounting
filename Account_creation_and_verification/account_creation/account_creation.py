@@ -6,7 +6,7 @@ account_creation = Flask(__name__, template_folder='../templates')
 account_creation.secret_key= "Isai_secret_key"
 
 @account_creation.route('/hello', methods = ["POST", "GET"])
-def login():
+def create():
     if request.method == "POST":
         username = request.form['username']
         password = request.form['password']
@@ -17,13 +17,13 @@ def login():
             return render_template('Homepage.html')
         elif username_validity and not password_validity:
             flash('Password did not meet qualifications', 'info')
-            return redirect(url_for("login"))
+            return redirect(url_for("create"))
         elif not username_validity and password_validity:
             flash('Username Already in Use', 'info')
-            return redirect(url_for("login"))
+            return redirect(url_for("create"))
         elif not username_validity and not password_validity:
             flash('Username Already in Use and Password did not meet qualifications', 'info')
-            return redirect(url_for("login"))
+            return redirect(url_for("create"))
     else:
         return render_template("account_creation.html")
 
