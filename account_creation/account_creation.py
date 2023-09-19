@@ -14,7 +14,9 @@ def create():
         password_validity = password_checker(password)
         if username_validity and password_validity:
             insert_username_and_password(username, password)
-            return render_template('Homepage.html')
+            flash('Account Creation Successful!', 'info')
+            flash('Please Login with Your account Information', 'info')
+            return render_template('login.html')
         elif username_validity and not password_validity:
             flash('Password did not meet qualifications', 'info')
             return redirect(url_for("create"))
