@@ -1,9 +1,11 @@
 
 def password_checker(password:str) -> bool:
-    """Enter your password and it will check if it fits the qualifications of having atleast
+    """
+    Enter your password and it will check if it fits the qualifications of having atleast
     1 capital letter, 1 lowercase letter, 1 special character, and is atleast 8 characters long. 
     If the password meets qualifications the function will return true, if not the function will
-    return false."""
+    return false.
+    """
     list_of_char = [char for char in password]
     length_of_pw = len(password)
     capital_letter = False

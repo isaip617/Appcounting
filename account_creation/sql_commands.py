@@ -1,5 +1,4 @@
 import sqlite3
-from pathlib import Path
 db_file = 'account_sql_database/account_database.db'
 
 def insert_username_and_password(username, password:str) -> None:
