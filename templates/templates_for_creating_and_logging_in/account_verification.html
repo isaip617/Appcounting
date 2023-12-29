@@ -1,0 +1,17 @@
+{% extends "templates_for_creating_and_logging_in/base.html" %}
+{% block title%} Sign In {% endblock %}
+{% block type %} 
+<h1> Sign Into Your Appcounting Account!</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p>{{msg}}</p>
+            {% endfor %}
+        {% endif%}
+    {% endwith %}
+{% endblock %}
+{% block pw_qualifications %}
+{% endblock %}
+{% block link %}
+<p>Don't have an account? <a href="{{ url_for('create') }}">Click here</a> to create one.</p>
+{% endblock %}
